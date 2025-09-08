@@ -1,0 +1,40 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.env
+.venv/
+venv/
+.env.local
+
+# Node
+node_modules/
+frontend/node_modules/
+*.log
+yarn.lock
+pnpm-lock.yaml
+
+# IDE/editor
+.vscode/
+.idea/
+.DS_Store
+
+# Build artifacts
+/dist/
+frontend/dist/
+
+# Python build
+build/
+dist/
+*.egg-info/
+
+# Coverage / test
+.coverage
+htmlcov/
+pytest_cache/
+
+# Misc
+*.swp
+*.swo
+Thumbs.db
