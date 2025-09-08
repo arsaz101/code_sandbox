@@ -91,7 +91,7 @@ export function RunConsole({ token, projectId: externalProjectId }) {
   // Ctrl+E shortcut
   useEffect(() => {
     function onKey(e) {
-      if (e.ctrlKey && (e.key === "e" || e.key === "E")) {
+      if (e.altKey && (e.key === "e" || e.key === "E")) {
         const tag = document.activeElement?.tagName;
         if (tag === "INPUT" || tag === "TEXTAREA") return;
         e.preventDefault();
@@ -131,7 +131,7 @@ export function RunConsole({ token, projectId: externalProjectId }) {
         <button
           onClick={start}
           disabled={!token}
-          title="Run (Ctrl+E)"
+          title="Run (Alt+E)"
           aria-label="Run"
           className="icon-btn"
           style={{ display: "flex", alignItems: "center", gap: 4 }}
