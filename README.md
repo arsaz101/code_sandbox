@@ -51,8 +51,6 @@ backend/
 frontend/
   src/                     # React application
     components/            # FileExplorer, CodeEditor, RunConsole, etc.
-runner/
-  worker.py                # (example runner / placeholder)
 ```
 
 ## Environment Variables
@@ -85,7 +83,7 @@ Then open: http://localhost:5173
 If you want AI suggestions, export your key before building or set in compose:
 
 ```bash
-export OPENAI_API_KEY=sk-...  # or set in docker-compose.yml
+export OPENAI_API_KEY=...  # or set in docker-compose.yml
 ```
 
 Recreate the backend service after adding the key.
