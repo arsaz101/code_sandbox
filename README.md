@@ -1,6 +1,6 @@
 # Coding Sandbox (VS Code-like Web IDE)
 
-A full-stack interactive coding sandbox that mimics core VS Code behaviors in the browser. It provides multi-project management, hierarchical file explorer with full CRUD, multi-tab Monaco editor (manual save, inline AI completions, streaming suggestions), run execution with live stdout/stderr, and optional OpenAI-powered code suggestions.
+A full-stack interactive coding sandbox that mimics core VS Code behaviors in the browser. It provides multi-project management, hierarchical file explorer with full CRUD, multi-tab Monaco editor (manual save, inline AI completions, streaming suggestions), run execution with live stdout/stderr, and optional OpenAI-powered code suggestions. Supports Python and JavaScript execution (Node runtime bundled in backend image).
 
 ## Features
 
@@ -18,6 +18,7 @@ A full-stack interactive coding sandbox that mimics core VS Code behaviors in th
   - Trigger execution (Play icon / Alt+E)
   - Separate scrollable stdout & stderr panels cleared on new run
   - WebSocket streaming output
+  - Multi-language: Python (in-memory exec) & JavaScript (Node)
 - Auth: JWT-based, initial admin bootstrap via env (ADMIN_EMAIL / ADMIN_PASSWORD)
 - AI Layer:
   - /api/ai/suggest (single-shot)
@@ -34,7 +35,7 @@ A full-stack interactive coding sandbox that mimics core VS Code behaviors in th
 | DB               | Postgres (async SQLAlchemy) | Models in `backend/app/db`                   |
 | Queue/Cache      | Redis                       | Future task orchestration                    |
 | Worker           | Python (same image)         | Background execution consumer                |
-| Runner (sandbox) | python:3.12-slim            | Isolated code execution environment          |
+| Runner (sandbox) | python:3.12-slim (+ Node)   | Isolated code execution environment          |
 
 ## Repository Layout
 
@@ -140,8 +141,9 @@ Fallback heuristic builds a simple `# suggestion` + `pass` scaffold when LLM dis
 ## Running Code
 
 - Select project
-- Open a file (e.g., `main.py`)
+- Open a file (e.g., `main.py` or `main.js`)
 - Edit, Ctrl+S to save
+- Choose language in run panel (python / javascript)
 - Press Play button or Alt+E to execute
 - Outputs stream into stdout / stderr panels (cleared each run)
 
@@ -161,6 +163,7 @@ Ideas:
 - Add file history / version snapshots
 - Improve sandbox isolation (per-run container)
 - Implement refresh tokens & UI model selection
+- Add more languages (Go, Rust, Java) with per-language container strategy
 
 ## Security Notes
 

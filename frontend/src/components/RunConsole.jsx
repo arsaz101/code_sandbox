@@ -126,7 +126,7 @@ export function RunConsole({ token, projectId: externalProjectId }) {
         />
         <select value={language} onChange={(e) => setLanguage(e.target.value)}>
           <option value="python">python</option>
-          <option value="node">node</option>
+          <option value="javascript">javascript</option>
         </select>
         <button
           onClick={start}
